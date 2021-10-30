@@ -1,0 +1,5 @@
+__v,_id,address,city,classs,createdAt,dateEnrolled,dob,email,fatherName,marks,phoneNo,pin,srn,state,userName,updatedAt
+0,614cfda0454169f8016ec25d,gurugram,gurgaon,a,2021-09-23T22:20:16.717Z,2021-09-23T22:20:16.680Z,16-09-1995,ffff@gmail.com,fatherName1,87%,9648499328,233223,1,hr,userName1,2021-09-23T22:20:16.717Z
+0,614cfdd5454169f8016ec25e,gurugram,gurgaon,11th,2021-09-23T22:21:09.805Z,2021-09-23T22:21:09.798Z,16-09-1995,abcdedfdff@gmail.com,sdfggf,86,9648499328,233223,2,hr,adtedrf,2021-09-23T22:21:09.805Z
+0,614d6735e6033bff8babedb9,gurugram,gurgaon,asd,2021-09-24T05:50:45.857Z,2021-09-24T05:50:45.847Z,16-09-1995,rrrrr@gmail.com,sgdf,54,9648499324,12345,3,hr,Asdgsdf,2021-09-24T05:50:45.857Z
+0,6150446e4a3a99d52762c15b,gurugram,gurgaon,asd,2021-09-26T09:59:10.659Z,2021-09-26T09:59:10.349Z,16-09-1995,abcdedssfdff@gmail.com,rdfhtrfh,86,9648499328,233223,,hr,adtedrf,2021-09-26T09:59:10.659Z

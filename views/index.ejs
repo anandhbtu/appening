@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo_Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/css/bootstrap.min.css" integrity="sha512-6KY5s6UI5J7SVYuZB4S/CZMyPylqyyNZco376NM2Z8Sb8OxEdp02e1jkKk/wZxIEmjQ6DRCEBhni+gpr9c4tvA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css"/>
+
+    <style>
+.Enroll_btn{
+    border: 5px solid black;
+    height: 3rem;
+    width: 10rem;
+}
+.New_stu_btn{
+    float: right;
+    margin-right: 10rem;
+    margin-top: 5rem;
+    height: 2rem;
+    width: 10rem;
+}
+
+
+.table1{
+    display: block;
+   margin: auto;
+ margin-top:  10rem;
+    width: 90%;
+    height: 26rem;
+  
+}
+.thead{
+   height: 1.5rem
+}
+
+tr > * + * {
+  padding-left: 4em;
+}
+.tr1{
+    border-bottom: 1px solid black;
+}
+.userdetailform{
+    padding: 3.5rem;
+}
+
+ </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js" integrity="sha512-trzlduO3EdG7Q0xK4+A+rPbcolVt37ftugUSOvrHhLR5Yw5rsfWXcpB3CPuEBcRBCHpc+j18xtQ6YrtVPKCdsg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("table").DataTable({
+            order:[0,'asc']
+        });
+    });
+</script>
+    <div>
+    <button class="Enroll_btn">Enrollment App</button>
+</div>
+<% if(message){%>
+<div class="alert alert-dismissible fade show alert-<%= message.type %>" 
+    role ="alert">
+    <button class="btn-close" type="button"data-bs-dismiss="alert"
+    aria-label="close"></button>
+    <strong><%= message.message %></strong>
+</div>
+ <%}%>
+
+<button class="New_stu_btn" onclick="openModal()">New user</button>
+
+<dialog id="dialog">
+    <h2 style="text-align: center;">user's Details</h2>
+
+<form  class="userdetailform" action="/add" method="post">
+     
+  <label for="fname">User Name:</label><br>
+  <input type="text" id="fname" name="userName" value=""><br>
+  <label for="lname">Father’s Name:</label><br>
+  <input type="text" id="lname" name="fatherName" value=""><br>
+  <label for="fname">DOB:</label><br>
+  <input type="text" id="fname" name="dob" value=""><br>
+  <label for="lname">Address:</label><br>
+  <input type="text" id="lname" name="address" value=""><br>
+  <label for="fname">City:</label><br>
+  <input type="text" id="fname" name="city" value=""><br>
+  <label for="lname">State:</label><br>
+  <input type="text" id="lname" name="state" value=""><br>
+  <label for="fname">Pin:</label><br>
+  <input type="text" id="fname" name="pin" value=""><br>
+  <label for="lname">Phone No:</label><br>
+  <input type="text" id="lname" name="phoneNo" value=""><br>
+  <label for="fname">Email:</label><br>
+  <input type="text" id="fname" name="email" value=""><br>
+  <br>
+<button type="submit" name="button">Add</button>
+ 
+</form> 
+
+</dialog>
+
+<dialog id="dialogEdit">
+   <h2>user's Edit (<%=usersList.name %>)</h2>
+
+   
+<form  class="" action="/update/<%= usersList._id %>" method="put">
+    
+ <label for="fname">User Name:</label><br>
+ <input type="text" id="fname" name="userName" value="<%=usersList.name%>"><br>
+ <label for="lname">Father’s Name:</label><br>
+ <input type="text" id="lname" name="fatherName" value="<%=usersList.fatherName%>"><br>
+ <label for="fname">DOB:</label><br>
+ <input type="text" id="fname" name="dob" value="<%=usersList.dob%>"><br>
+ <label for="lname">Address:</label><br>
+ <input type="text" id="lname" name="address" value="<%=usersList.address%>"><br>
+ <label for="fname">City:</label><br>
+ <input type="text" id="fname" name="city" value="<%=usersList.city%>"><br>
+ <label for="lname">State:</label><br>
+ <input type="text" id="lname" name="state" value="<%=usersList.state%>"><br>
+ <label for="fname">Pin:</label><br>
+ <input type="text" id="fname" name="pin" value="<%=usersList.pin%>"><br>
+ <label for="lname">Phone No:</label><br>
+ <input type="text" id="lname" name="phoneNo" value="<%=usersList.phoneNo%>"><br>
+ <label for="fname">Email:</label><br>
+ <input type="text" id="fname" name="email" value="<%=usersList.email%>"><br>
+ <br>
+<button type="submit" name="button">Update</button>
+
+</form> 
+
+</dialog>
+
+<div>
+    <div class="table1" style="border: 1px solid black">
+        <div  class="thead" style="border: 1px solid black " >
+
+          <%  if(usersList != ''){ %>
+            <table class="table table-sm">
+                <thead>
+                          <tr class="tr1">
+                            <th>S No</th>
+                            <th>User name</th>
+                            <th>Email</th>
+                            <th>phone</th>
+                            <th>Edit</th>
+                            <!-- <th>Delete</th> -->
+                          </tr>                  
+                        </thead>
+                      
+                        
+                      <tbody>
+                           <% for (var i = 0;i<usersList.length;i++){ %>
+                              <tr>
+                                 <td><%= i+1 %></td>
+                             
+                              <td ><a href="/show/<%= usersList[i]._id %>"><%= usersList[i].userName %></a></td>
+                              <td><%= usersList[i].email %></td>
+                              <td><%= usersList[i].phoneNo %></td>                 
+                              <td>                      
+                             
+                              <a href="/edit/<%= usersList[i]._id %>" class="text-success"><i class="fas
+                                fa-edit fa-lg mx-1"></i></a>
+                           </td>
+                           </tr>
+                           <% } %>
+                           </tbody>              
+              </table>
+           <% }else{ %>
+<h1 class="text-center text-secondary mt-5"> No any user found in records!</h1>
+           <% } %>
+       
+        
+        </div>
+    </div>
+</div>
+<script>
+    var dailog = document.getElementById("dialog"); 
+    var dialogEdit = document.getElementById("dialogEdit"); 
+
+function openModal() { 
+  
+      dailog.showModal();
+} 
+
+function openModalEdit(id) { 
+ 
+   console.log('id...... :>> ', id);
+   dialogEdit.showModal();
+} 
+
+function closeModal() { 
+dailog.close(); 
+} 
+</script>
+</body>
+</html>

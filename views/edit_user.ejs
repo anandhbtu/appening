@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .editform{
+            text-align:center;
+        }
+        label{
+            font-weight: bold;
+            text-align: left;
+        }
+        input{
+            height: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">user's Edit (<%=usersList.userName %>)</h2>
+
+   
+    <form  class="editform" action="/update/<%= usersList._id %>" method="post">
+        
+       
+
+     <label for="fname">User Name:</label><br>
+     <input type="text" id="fname" name="userName" value="<%=usersList.userName%>"><br>
+     <label for="lname">Father’s Name:</label><br>
+     <input type="text" id="lname" name="fatherName" value="<%=usersList.fatherName%>"><br>
+     <label for="fname">DOB:</label><br>
+     <input type="text" id="fname" name="dob" value="<%=usersList.dob%>"><br>
+     <label for="lname">Address:</label><br>
+     <input type="text" id="lname" name="address" value="<%=usersList.address%>"><br>
+     <label for="fname">City:</label><br>
+     <input type="text" id="fname" name="city" value="<%=usersList.city%>"><br>
+     <label for="lname">State:</label><br>
+     <input type="text" id="lname" name="state" value="<%=usersList.state%>"><br>
+     <label for="fname">Pin:</label><br>
+     <input type="text" id="fname" name="pin" value="<%=usersList.pin%>"><br>
+     <label for="lname">Phone No:</label><br>
+     <input type="text" id="lname" name="phoneNo" value="<%=usersList.phoneNo%>"><br>
+     <label for="fname">Email:</label><br>
+     <input type="text" id="fname" name="email" value="<%=usersList.email%>"><br>
+     <br>
+    <button type="submit" name="button">Update</button>
+    
+    </form> 
+</body>
+</html>
